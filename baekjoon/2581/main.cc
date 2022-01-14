@@ -25,7 +25,7 @@ int main() {
   is_prime[2] = true;
   is_prime[3] = true;
 
-  for (int i = 1; i < m; i++) {
+  for (int i = 4; i < m; i++) {
     is_prime[i] = check_prime(i);
   }
   for (int i = m; i <= n; i++) {
