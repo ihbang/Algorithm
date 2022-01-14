@@ -9,7 +9,9 @@ using std::vector;
 bool is_prime[10001] = {false};
 
 bool check_prime(int n) {
-  for (int i = 1; i < n; i++) {
+  if (n == 1) return false;
+  if (n == 2) return true;
+  for (int i = 2; i < n; i++) {
     if (is_prime[i] && n % i == 0) return false;
   }
   return true;
@@ -22,14 +24,12 @@ int main() {
   std::cin >> m;
   std::cin >> n;
 
-  is_prime[2] = true;
-  is_prime[3] = true;
-
-  for (int i = 4; i < m; i++) {
+  for (int i = 1; i < m; i++) {
     is_prime[i] = check_prime(i);
   }
   for (int i = m; i <= n; i++) {
-    if (check_prime(i)) {
+    is_prime[i] = check_prime(i);
+    if (is_prime[i]) {
       sum += i;
       if (min == 0) min = i;
     }
